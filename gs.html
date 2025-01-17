@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Lottie Animation</title>
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <style>
+    /* Center the container */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%; /* Full height for centering */
+      display: flex;
+       /* Center horizontally */
+      align-items: center;    /* Center vertically */
+      background-color: #efeaea; /* Light background for contrast */
+    }
+
+    dotlottie-player {
+      width: 500px;  /* Increase the size of the animation */
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <dotlottie-player 
+    src="https://lottie.host/4265b643-5f28-4e4f-b067-54f00826b1d2/VW5PXLsuLF.json" 
+    background="transparent" 
+    speed="1" 
+    loop 
+    autoplay>
+  </dotlottie-player>
+</body>
+</html>
