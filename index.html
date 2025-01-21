@@ -59,6 +59,44 @@
                 <li><a href="http://172.16.28.65/ee102/index.html" class="underline-hover">EE102</a></li>
                 <li><a href="https://www.iitg.ac.in/stud/gymkhana/" class="underline-hover">Gymkhana</a></li>
                 <li><a href="https://www.iitg.ac.in/campusmap/" class="underline-hover">Campus Map</a></li>
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touch to Show Image</title>
+  <style>
+     #hiddenImage {
+      display: none; /* Initially hidden */
+      margin-top: 20px;
+    }
+
+    #touchButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #touchButton:active {
+      background-color: #0056b3;
+    }
+  </style>
+  <h3>Time-Table</h3>
+  <button id="touchButton">Click here</button>
+  <img id="hiddenImage" src="tt.jpg" alt="Hidden Image" />
+
+  <script>
+    const button = document.getElementById('touchButton');
+    const image = document.getElementById('hiddenImage');
+
+    button.addEventListener('click', () => {
+      image.style.display = 'block'; // Show the image when button is clicked
+    });
+  </script>
                 
                 
             </ul>
