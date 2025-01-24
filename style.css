@@ -196,23 +196,6 @@ footer .highlight {
     padding: 20px 0;
 }
 
-.btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
 
 /* Header Section */
 .hero {
@@ -255,4 +238,213 @@ footer .highlight {
     border-radius: 50%;
     animation: rotate 15s linear infinite;
     z-index: -1;
+}
+.circle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(87, 217, 229, 0.6);
+    border-radius: 50%;
+    animation: moveCircle 15s linear infinite;
+    filter: blur(5px);
+}
+
+/* Random Circle Placement */
+.circle:nth-child(1) {
+    top: 20%;
+    left: 30%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+}
+
+.circle:nth-child(2) {
+    top: 50%;
+    left: 10%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+}
+
+.circle:nth-child(3) {
+    top: 70%;
+    left: 50%;
+    animation-duration: 14s;
+    animation-delay: 4s;
+}
+
+.circle:nth-child(4) {
+    top: 40%;
+    left: 80%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+.circle:nth-child(5) {
+    top: 30%;
+    left: 60%;
+    animation-duration: 11s;
+    animation-delay: 8s;
+}
+
+/* Circle Animation Keyframes */
+@keyframes moveCircle {
+    0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translateY(-100px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(2) translateY(-200px);
+        opacity: 0;
+    }
+}
+.rcontainer {
+    background: #1ef08e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background: #0056b3;
+}
+.result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #5c0404;
+}
+.attractive-div {
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2em;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.attractive-div:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+.attractive-div h1 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+.attractive-div p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.attractive-div button {
+    background: #ff6a6a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.attractive-div button:hover {
+    background: #d94646;
+}
+.btn-primar, .mbt2 {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 10px 0;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+.btn-primar {
+    background: #7f04dd;
+    color: #b0e6f3;
+    font-weight: 600;
+}
+
+.btn-primar:hover {
+    background: rgb(96, 226, 120);
+    color: #6a11cb;
+}
+
+.mbt2 {
+    background: none;
+    border: 2px solid #691807;
+    color: #691807;
+}
+
+.mbt2:hover {
+    background: #ffd700;
+    color: #9a0606;
+}
+
+/* Hero Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+@keyframes glowPulse {
+    0%, 100% {
+        text-shadow: 0 0 5px #ff7eb3, 0 0 10px #ff7eb3, 0 0 20px #ff7eb3;
+    }
+    50% {
+        text-shadow: 0 0 15px #ff7eb3, 0 0 30px #ff7eb3, 0 0 40px #ff7eb3;
+    }
 }

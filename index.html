@@ -59,34 +59,9 @@
                 <li><a href="http://172.16.28.65/ee102/index.html" class="underline-hover">EE102</a></li>
                 <li><a href="https://www.iitg.ac.in/stud/gymkhana/" class="underline-hover">Gymkhana</a></li>
                 <li><a href="https://www.iitg.ac.in/campusmap/" class="underline-hover">Campus Map</a></li>
-                <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Touch to Show Image</title>
-  <style>
-     #hiddenImage {
-      display: none; /* Initially hidden */
-      margin-top: 20px;
-    }
-
-    #touchButton {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: white;
-      background-color: #007BFF;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #touchButton:active {
-      background-color: #0056b3;
-    }
-  </style>
+  
   <h3>Time-Table</h3>
-  <button id="touchButton">Click here</button>
+  <button id="touchButton" class="btn-primar">Click here</button>
   <img id="hiddenImage" src="tt.jpg" alt="Hidden Image" />
 
   <script>
@@ -101,9 +76,74 @@
                 
             </ul>
         </section>
+<section id="cpicl" class="section" >
+        <h2>CPI <span class="highlight">Calculator</span></h2>
+        <div class="rcontainer">
+            <h1>CPI Calculator</h1>
+            <form id="cpiForm">
+                <label for="numCourses">Number of Courses:</label>
+                <input type="number" id="numCourses" placeholder="Enter number of courses" required min="1">
+    
+                <div id="courseInputs"></div>
+    
+                <button type="button" class="mbt2" onclick="generateInputs()">Generate Inputs</button>
+                <button type="button" class="mbt2" onclick="calculateCPI()">Calculate CPI</button>
+            </form>
+            <div class="result" id="result"></div>
+        </div>
+    
+        <script>
+            function generateInputs() {
+                const numCourses = document.getElementById('numCourses').value;
+                const courseInputs = document.getElementById('courseInputs');
+                courseInputs.innerHTML = '';
+    
+                if (numCourses > 0) {
+                    for (let i = 0; i < numCourses; i++) {
+                        courseInputs.innerHTML += `
+                            <label for="credits${i}">Course ${i + 1} Credits:</label>
+                            <input type="number" id="credits${i}" placeholder="Enter credits" required min="1">
+    
+                            <label for="grade${i}">Course ${i + 1} Grade:</label>
+                            <input type="number" id="grade${i}" placeholder="Enter grade (0-10)" required min="0" max="10">
+                        `;
+                    }
+                } else {
+                    alert('Please enter a valid number of courses.');
+                }
+            }
+    
+            function calculateCPI() {
+                const numCourses = document.getElementById('numCourses').value;
+                let totalCredits = 0;
+                let totalWeightedGrades = 0;
+    
+                for (let i = 0; i < numCourses; i++) {
+                    const credits = parseFloat(document.getElementById(`credits${i}`).value);
+                    const grade = parseFloat(document.getElementById(`grade${i}`).value);
+    
+                    if (credits > 0 && grade >= 0 && grade <= 10) {
+                        totalCredits += credits;
+                        totalWeightedGrades += credits * grade;
+                    } else {
+                        alert('Please ensure all credits and grades are valid.');
+                        return;
+                    }
+                }
+    
+                if (totalCredits > 0) {
+                    const cpi = totalWeightedGrades / totalCredits;
+                    document.getElementById('result').innerText = `Your CPI is: ${cpi.toFixed(2)}`;
+                } else {
+                    alert('Total credits cannot be zero.');
+                }
+            }
+        </script>
+
+    </section>
         <section id="rating" class="section">
-            <h3>Rate Meffule</h3>
-<div id="rating-container">
+            <h2>Rate <span class="highlight">Meffule</span></h2>
+<div id="rating-container" class="attractive-div">
     <span class="star" data-value="1">★</span>
     <span class="star" data-value="2">★</span>
     <span class="star" data-value="3">★</span>
