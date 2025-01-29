@@ -60,18 +60,23 @@
                 <li><a href="https://www.iitg.ac.in/stud/gymkhana/" class="underline-hover">Gymkhana</a></li>
                 <li><a href="https://www.iitg.ac.in/campusmap/" class="underline-hover">Campus Map</a></li>
   
-  <h3>Time-Table</h3>
-  <button id="touchButton" class="btn-primar">Click here</button>
-  <img id="hiddenImage" src="tt.jpg" alt="Hidden Image" />
-
-  <script>
-    const button = document.getElementById('touchButton');
-    const image = document.getElementById('hiddenImage');
-
-    button.addEventListener('click', () => {
-      image.style.display = 'block'; // Show the image when button is clicked
-    });
-  </script>
+                
+                <button onclick="toggleImage('tt')" class="btn-primar">Time-table</button>
+                <br>
+                    <img id="tt" src="tt.jpg" alt="tt">
+                <button onclick="toggleImage('impinfo')" class="btn-primar">imp-info...</button>
+                <br>
+                <img id="impinfo" src="impinfo.png" alt="impinfo">
+                <script>
+                    function toggleImage(x) {
+                        var img = document.getElementById(x);
+                        if (img.style.display === "none" || img.style.display === "") {
+                            img.style.display = "block";
+                        } else {
+                            img.style.display = "none";
+                        }
+                    }
+                </script>
                 
                 
             </ul>

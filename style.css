@@ -355,7 +355,7 @@ button:hover {
     background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    width: 250px;
+    width: 350px;
     padding: 20px;
     text-align: center;
     color: #fff;
@@ -447,4 +447,17 @@ button:hover {
     50% {
         text-shadow: 0 0 15px #ff7eb3, 0 0 30px #ff7eb3, 0 0 40px #ff7eb3;
     }
+}
+img {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+img.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1.05);
 }
