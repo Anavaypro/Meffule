@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meffule - Your IITG Companion</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <link rel="icon" href="1737352625437.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,159 +13,184 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="hero">
+    <!-- Lottie Preloader -->
+    <div id="preloader">
+        <div id="lottie"></div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div id="mainContent">
+        <header class="hero">
         
-        <div class="container">
-            <img src="meffule-logo.png" alt="Meffule Logo" class="logo">
-            <h1>Welcome to <span class="highlight">Meffule</span></h1>
-            <p class="tagline">Your <span class="highlight">All in One</span> Portal for IIT Guwahati Resources</p>
-            <div class="get-started">
-                <a href="gs.html">Get Started</a>
-            </div>
-        </div>
-    </header>
-
-   
-
-    <main class="container">
-        <section id="about" class="section">
-            <h2>About <span class="highlight">Meffule</span></h2>
-            <p>Discover a streamlined way to access essential resources, links, and updates, tailored for IIT Guwahati students. Meffule is designed to simplify your campus life and help you thrive.</p>
-        </section>
-
-        <section id="services" class="section">
-            <h2>Our <span class="highlight">Services</span></h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>Resource Hub</h3>
-                    <p>All your important IITG resources and links in one place.</p>
-                </div>
-                <div class="card">
-                    <h3>Collaboration</h3>
-                    <p>Connect with peers and innovate through teamwork.</p>
-                </div>
-                <div class="card">
-                    <h3>Opdum Integration</h3>
-                    <p>Access the Opdum tools for enhanced productivity and learning.</p>
+            <div class="container">
+                <img src="meffule-logo.png" alt="Meffule Logo" class="logo">
+                <h1>Welcome to <span class="highlight">Meffule</span></h1>
+                <p class="tagline">Your <span class="highlight">All in One</span> Portal for IIT Guwahati Resources</p>
+                <div class="get-started">
+                    <a href="gs.html">Get Started</a>
                 </div>
             </div>
-        </section>
-
-        <section id="opdum" class="section">
-            <h2>Explore <span class="highlight">Opdum</span></h2>
-            <p>Access key links and features designed to empower your academic journey:</p>
-            <ul>
-                <li><a href="https://iitgoffice-my.sharepoint.com/personal/cepstrum_iitg_ac_in/_layouts/15/onedrive.aspx?e=5%3Ac5eb2313bc004fc7866eca8c25526b35&at=9&FolderCTID=0x012000AB4F8FCCB94C08499FED21F13A11E188&id=%2Fpersonal%2Fcepstrum%5Fiitg%5Fac%5Fin%2FDocuments%2FPaperMan&noAuthRedirect=1" class="underline-hover">Cepstrum</a></li>
-                <li><a href="https://fac.iitg.ac.in/kvsrikanth/teaching/2025s/index.php" class="underline-hover">MA102</a></li>
-                <li><a href="http://jatinga.iitg.ernet.in/~arijit/101.htm" class="underline-hover">CS101</a></li>
-                <li><a href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/arupn_iitg_ac_in/Evgnnf-BHbRKraqREAB0ABMBE12U5cwns9nMJ_VZCmtmzg?e=asuq2D" class="underline-hover">ME101(lecs)</a><a>||</a><a href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/arupn_iitg_ac_in/EoIXNHBilwlMjngR5c6XnL0BT4Svxeism5UXaw1BMD4Scg?e=bN3dMf" class="underline-hover"> (Tuts..)</a></li>
-                <li><a href="https://drive.google.com/drive/folders/1Kcx89YIRjP316BCRBj6DjaT8UjWJ1m5r?usp=drive_link" class="underline-hover">BT101</a></li>
-                <li><a href="https://drive.google.com/drive/folders/1Gm5ZVV5j8yLqCbbch5BPKAIPat727E3d?usp=sharing" class="underline-hover">Full Theory Course</a></li>
-                <li><a href="http://172.16.28.65/ee102/index.html" class="underline-hover">EE102</a></li>
-                <li><a href="https://www.iitg.ac.in/stud/gymkhana/" class="underline-hover">Gymkhana</a></li>
-                <li><a href="https://www.iitg.ac.in/campusmap/" class="underline-hover">Campus Map</a></li>
-  
-                
-                <button onmouseover="toggleImage('tt')" class="btn-primar">Time-table</button>
-                <br>
-                    <img id="tt" src="tt.jpg" alt="tt">
-                <button onmouseover="toggleImage('impinfo')" class="btn-primar">Imp-Info...</button>
-                <br>
-                <img id="impinfo" src="impinfo.png" alt="impinfo">
-                <script>
-                    function toggleImage(x) {
-                        var img = document.getElementById(x);
-                        if (img.style.display === "none" || img.style.display === "") {
-                            img.style.display = "block";
+        </header>
+    
+       
+    
+        <main class="container">
+            <section id="about" class="section">
+                <h2>About <span class="highlight">Meffule</span></h2>
+                <p>Discover a streamlined way to access essential resources, links, and updates, tailored for IIT Guwahati students. Meffule is designed to simplify your campus life and help you thrive.</p>
+            </section>
+    
+            <section id="services" class="section">
+                <h2>Our <span class="highlight">Services</span></h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Resource Hub</h3>
+                        <p>All your important IITG resources and links in one place.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Collaboration</h3>
+                        <p>Connect with peers and innovate through teamwork.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Opdum Integration</h3>
+                        <p>Access the Opdum tools for enhanced productivity and learning.</p>
+                    </div>
+                </div>
+            </section>
+    
+            <section id="opdum" class="section">
+                <h2>Explore <span class="highlight">Opdum</span></h2>
+                <p>Access key links and features designed to empower your academic journey:</p>
+                <ul>
+                    <li><a href="https://iitgoffice-my.sharepoint.com/personal/cepstrum_iitg_ac_in/_layouts/15/onedrive.aspx?e=5%3Ac5eb2313bc004fc7866eca8c25526b35&at=9&FolderCTID=0x012000AB4F8FCCB94C08499FED21F13A11E188&id=%2Fpersonal%2Fcepstrum%5Fiitg%5Fac%5Fin%2FDocuments%2FPaperMan&noAuthRedirect=1" class="underline-hover">Cepstrum</a></li>
+                    <li><a href="https://fac.iitg.ac.in/kvsrikanth/teaching/2025s/index.php" class="underline-hover">MA102</a></li>
+                    <li><a href="http://jatinga.iitg.ernet.in/~arijit/101.htm" class="underline-hover">CS101</a></li>
+                    <li><a href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/arupn_iitg_ac_in/Evgnnf-BHbRKraqREAB0ABMBE12U5cwns9nMJ_VZCmtmzg?e=asuq2D" class="underline-hover">ME101(lecs)</a><a>||</a><a href="https://iitgoffice-my.sharepoint.com/:f:/g/personal/arupn_iitg_ac_in/EoIXNHBilwlMjngR5c6XnL0BT4Svxeism5UXaw1BMD4Scg?e=bN3dMf" class="underline-hover"> (Tuts..)</a></li>
+                    <li><a href="https://drive.google.com/drive/folders/1Kcx89YIRjP316BCRBj6DjaT8UjWJ1m5r?usp=drive_link" class="underline-hover">BT101</a></li>
+                    <li><a href="https://drive.google.com/drive/folders/1Gm5ZVV5j8yLqCbbch5BPKAIPat727E3d?usp=sharing" class="underline-hover">Full Theory Course</a></li>
+                    <li><a href="http://172.16.28.65/ee102/index.html" class="underline-hover">EE102</a></li>
+                    <li><a href="https://www.iitg.ac.in/stud/gymkhana/" class="underline-hover">Gymkhana</a></li>
+                    <li><a href="https://www.iitg.ac.in/campusmap/" class="underline-hover">Campus Map</a></li>
+      
+                    
+                    <button onmouseover="toggleImage('tt')" class="btn-primar">Time-table</button>
+                    <br>
+                        <img id="tt" src="tt.jpg" alt="tt">
+                    <button onmouseover="toggleImage('impinfo')" class="btn-primar">Imp-Info...</button>
+                    <br>
+                    <img id="impinfo" src="impinfo.png" alt="impinfo">
+                    <script>
+                        function toggleImage(x) {
+                            var img = document.getElementById(x);
+                            if (img.style.display === "none" || img.style.display === "") {
+                                img.style.display = "block";
+                            } else {
+                                img.style.display = "none";
+                            }
+                        }
+                    </script>
+                    
+                    
+                </ul>
+            </section>
+    <section id="cpicl" class="section" >
+            <h2>CPI <span class="highlight">Calculator</span></h2>
+            <div class="rcontainer">
+                <h1>CPI Calculator</h1>
+                <form id="cpiForm">
+                    <label for="numCourses">Number of Courses:</label>
+                    <input type="number" id="numCourses" placeholder="Enter number of courses" required min="1">
+        
+                    <div id="courseInputs"></div>
+        
+                    <button type="button" class="mbt2" onclick="generateInputs()">Generate Inputs</button>
+                    <button type="button" class="mbt2" onclick="calculateCPI()">Calculate CPI</button>
+                </form>
+                <div class="result" id="result"></div>
+            </div>
+        
+            <script>
+                function generateInputs() {
+                    const numCourses = document.getElementById('numCourses').value;
+                    const courseInputs = document.getElementById('courseInputs');
+                    courseInputs.innerHTML = '';
+        
+                    if (numCourses > 0) {
+                        for (let i = 0; i < numCourses; i++) {
+                            courseInputs.innerHTML += `
+                                <label for="credits${i}">Course ${i + 1} Credits:</label>
+                                <input type="number" id="credits${i}" placeholder="Enter credits" required min="1">
+        
+                                <label for="grade${i}">Course ${i + 1} Grade:</label>
+                                <input type="number" id="grade${i}" placeholder="Enter grade (0-10)" required min="0" max="10">
+                            `;
+                        }
+                    } else {
+                        alert('Please enter a valid number of courses.');
+                    }
+                }
+        
+                function calculateCPI() {
+                    const numCourses = document.getElementById('numCourses').value;
+                    let totalCredits = 0;
+                    let totalWeightedGrades = 0;
+        
+                    for (let i = 0; i < numCourses; i++) {
+                        const credits = parseFloat(document.getElementById(`credits${i}`).value);
+                        const grade = parseFloat(document.getElementById(`grade${i}`).value);
+        
+                        if (credits > 0 && grade >= 0 && grade <= 10) {
+                            totalCredits += credits;
+                            totalWeightedGrades += credits * grade;
                         } else {
-                            img.style.display = "none";
+                            alert('Please ensure all credits and grades are valid.');
+                            return;
                         }
                     }
-                </script>
-                
-                
-            </ul>
-        </section>
-<section id="cpicl" class="section" >
-        <h2>CPI <span class="highlight">Calculator</span></h2>
-        <div class="rcontainer">
-            <h1>CPI Calculator</h1>
-            <form id="cpiForm">
-                <label for="numCourses">Number of Courses:</label>
-                <input type="number" id="numCourses" placeholder="Enter number of courses" required min="1">
-    
-                <div id="courseInputs"></div>
-    
-                <button type="button" class="mbt2" onclick="generateInputs()">Generate Inputs</button>
-                <button type="button" class="mbt2" onclick="calculateCPI()">Calculate CPI</button>
-            </form>
-            <div class="result" id="result"></div>
-        </div>
-    
-        <script>
-            function generateInputs() {
-                const numCourses = document.getElementById('numCourses').value;
-                const courseInputs = document.getElementById('courseInputs');
-                courseInputs.innerHTML = '';
-    
-                if (numCourses > 0) {
-                    for (let i = 0; i < numCourses; i++) {
-                        courseInputs.innerHTML += `
-                            <label for="credits${i}">Course ${i + 1} Credits:</label>
-                            <input type="number" id="credits${i}" placeholder="Enter credits" required min="1">
-    
-                            <label for="grade${i}">Course ${i + 1} Grade:</label>
-                            <input type="number" id="grade${i}" placeholder="Enter grade (0-10)" required min="0" max="10">
-                        `;
-                    }
-                } else {
-                    alert('Please enter a valid number of courses.');
-                }
-            }
-    
-            function calculateCPI() {
-                const numCourses = document.getElementById('numCourses').value;
-                let totalCredits = 0;
-                let totalWeightedGrades = 0;
-    
-                for (let i = 0; i < numCourses; i++) {
-                    const credits = parseFloat(document.getElementById(`credits${i}`).value);
-                    const grade = parseFloat(document.getElementById(`grade${i}`).value);
-    
-                    if (credits > 0 && grade >= 0 && grade <= 10) {
-                        totalCredits += credits;
-                        totalWeightedGrades += credits * grade;
+        
+                    if (totalCredits > 0) {
+                        const cpi = totalWeightedGrades / totalCredits;
+                        document.getElementById('result').innerText = `Your CPI is: ${cpi.toFixed(2)}`;
                     } else {
-                        alert('Please ensure all credits and grades are valid.');
-                        return;
+                        alert('Total credits cannot be zero.');
                     }
                 }
+            </script>
     
-                if (totalCredits > 0) {
-                    const cpi = totalWeightedGrades / totalCredits;
-                    document.getElementById('result').innerText = `Your CPI is: ${cpi.toFixed(2)}`;
-                } else {
-                    alert('Total credits cannot be zero.');
-                }
-            }
-        </script>
-
-    </section>
-        <section id="rating" class="section">
-            <h2>Rate <span class="highlight">Meffule</span></h2>
-<div id="rating-container" class="attractive-div">
-    <span class="star" data-value="1">★</span>
-    <span class="star" data-value="2">★</span>
-    <span class="star" data-value="3">★</span>
-    <span class="star" data-value="4">★</span>
-    <span class="star" data-value="5">★</span>
-</div>
-<p>Average Rating: <span id="average-rating">Loading...</span></p>
         </section>
-    </main>
+            <section id="rating" class="section">
+                <h2>Rate <span class="highlight">Meffule</span></h2>
+    <div id="rating-container" class="attractive-div">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+    <p>Average Rating: <span id="average-rating">Loading...</span></p>
+            </section>
+        </main>
+    
+        <footer>
+            <p> All rights reserved <span class="highlight">© 2025</span></p>
+        </footer>
+    </div>
 
-    <footer>
-        <p> All rights reserved <span class="highlight">© 2025</span></p>
-    </footer>
+    <script>
+        // Load Lottie animation
+        let animation = lottie.loadAnimation({
+            container: document.getElementById("lottie"),
+            renderer: "svg",
+            loop: false,
+            autoplay: true,
+            path: "https://lottie.host/a8110abf-787d-47e6-aeac-33fbcb4ec18f/ukfLzPpyrZ.json" // Replace with your Lottie JSON file URL
+        });
+
+        // When animation is complete, show main content
+        animation.addEventListener("complete", function() {
+            document.getElementById("preloader").style.display = "none"; // Hide animation
+            document.getElementById("mainContent").style.display = "block"; // Show content
+        });
+    </script>
 </body>
 </html>
