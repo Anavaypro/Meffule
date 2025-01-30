@@ -1,9 +1,11 @@
 /* General Styles */
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Josefin Sans", serif;
+    font-style: normal;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #ECF0F1;
     color: #333;
     line-height: 1.6;
 }
@@ -53,6 +55,15 @@ header .get-started a:hover {
     background: #d4ac0d;
     transform: scale(1.1);
 }
+.logo {
+    width: 10vw; /* 10% of viewport width */
+    height: 10vw;
+    max-width: 150px; /* Prevents it from getting too big */
+    max-height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 
 /* Navigation */
 nav {
@@ -113,10 +124,10 @@ nav a:hover {
 }
 .card {
     flex: 1;
-    background: #f4f4f9;
+    background:#E67E22;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(82, 10, 10, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
