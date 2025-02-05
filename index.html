@@ -9,17 +9,19 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/contrib/auto-render.min.js" 
+          onload="renderMathInElement(document.body);"></script>
+          <script type="text/javascript" async
+  src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Lottie Preloader -->
-    <div id="preloader">
-        <div id="lottie"></div>
-    </div>
-
-    <!-- Main Website Content -->
-    <div id="mainContent">
         <header class="hero">
         
             <div class="container">
@@ -27,14 +29,110 @@
                 <h1>Welcome to <span class="highlight">Meffule</span></h1>
                 <p class="tagline">Your <span class="highlight">All in One</span> Portal for IIT Guwahati Resources</p>
                 <div class="get-started">
-                    <a href="gs.html">Get Started</a>
+                    <a href="gs.html" class="noi">Get Started</a>
                 </div>
+                <p>Einstein's equation:  
+                    \( E = mc^2 \)
+                 </p>
             </div>
         </header>
     
        
     
         <main class="container">
+            <!-- Chat Button -->
+    <button class="chat-button" onclick="toggleChat()">🤖</button>
+
+<script>
+  function createParticles() {
+    const button = document.querySelector(".chat-button");
+
+    for (let i = 0; i < 2; i++) { // Controls particle generation speed
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+
+      // Random direction
+      const angle = Math.random() * 2 * Math.PI;
+      const distance = Math.random() * 40 + 10; // Spread distance
+      particle.style.setProperty("--x", `${Math.cos(angle) * distance}px`);
+      particle.style.setProperty("--y", `${Math.sin(angle) * distance}px`);
+
+      button.parentElement.appendChild(particle);
+
+      // Remove particle after animation
+      setTimeout(() => {
+        particle.remove();
+      }, 1000);
+    }
+  }
+
+  // Generate particles every 300ms
+  setInterval(createParticles, 300);
+</script>
+
+
+
+    <!-- Chatbox -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <span class="highlight">Meffule AI <button class="close-btn" onclick="toggleChat()">X</button>
+        </div>
+        <div id="chatbox" class="chatbox"></div>
+        <div class="chat-input">
+              
+              <div class="input-container">
+                <input type="text" class="styled-input" id="userInput" placeholder="tell me"  onkeypress="handleKeyPress(event)" />
+              </div>
+            <div><button class="sendo" onclick="sendMessage()">Send</button></div>
+        </div>
+    </div>
+
+    <script>
+        const API_KEY = "AIzaSyBz7ck5Bz9rZ6gs-Rx_wDaq-nSVuL8y9Ew"; // Replace with actual API key
+
+        function toggleChat() {
+            let chatContainer = document.getElementById("chatContainer");
+            chatContainer.style.display = (chatContainer.style.display === "none" || chatContainer.style.display === "") ? "block" : "none";
+        }
+
+        async function sendMessage() {
+            let userText = document.getElementById("userInput").value;
+            let chatbox = document.getElementById("chatbox");
+
+            if (!userText.trim()) return; // Prevent empty messages
+
+            chatbox.innerHTML += "<p><b>You:</b> " + userText + "</p>";
+            document.getElementById("userInput").value = "";
+
+            try {
+                let response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: userText }] }]
+                    })
+                });
+
+                let data = await response.json();
+                console.log("API Response:", data);
+
+                let aiResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, something went wrong.";
+
+                chatbox.innerHTML += "<p><b>Meffule-Ai:</b> " + aiResponse + "</p>";
+                chatbox.scrollTop = chatbox.scrollHeight; // Auto-scroll
+
+            } catch (error) {
+                console.error("Error:", error);
+                chatbox.innerHTML += "<p><b>AI:</b> Sorry, I couldn't fetch a response.</p>";
+            }
+        }
+
+        function handleKeyPress(event) {
+          if (event.key === "Enter") {
+            sendMessage();
+          }
+        }
+    </script>
             <section id="about" class="section">
                 <h2>About <span class="highlight">Meffule</span></h2>
                 <p>Discover a streamlined way to access essential resources, links, and updates, tailored for IIT Guwahati students. Meffule is designed to simplify your campus life and help you thrive.</p>
@@ -174,23 +272,6 @@
         <footer>
             <p> All rights reserved <span class="highlight">© 2025</span></p>
         </footer>
-    </div>
-
-    <script>
-        // Load Lottie animation
-        let animation = lottie.loadAnimation({
-            container: document.getElementById("lottie"),
-            renderer: "svg",
-            loop: false,
-            autoplay: true,
-            path: "https://lottie.host/a8110abf-787d-47e6-aeac-33fbcb4ec18f/ukfLzPpyrZ.json" // Replace with your Lottie JSON file URL
-        });
-
-        // When animation is complete, show main content
-        animation.addEventListener("complete", function() {
-            document.getElementById("preloader").style.display = "none"; // Hide animation
-            document.getElementById("mainContent").style.display = "block"; // Show content
-        });
-    </script>
+    
 </body>
 </html>
